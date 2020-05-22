@@ -1,13 +1,12 @@
 package com.example.demo.model;
 
-import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="courses")
 public class Course {
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -17,17 +16,18 @@ public class Course {
 	private String courseName;
 	
 	@Column(name = "course_description")
-	private String courseDescription;
+	private String courseDescription;	
+	
 	public Course() {
 		
 	}
 	
-	public Course(int id, String courseName, String courseDescription) {
+	public Course( String courseName, String courseDescription) {
 		super();
-		this.id = id;
 		this.courseName = courseName;
 		this.courseDescription = courseDescription;
 	}
+	
 	public int getId() {
 		return id;
 	}
@@ -40,12 +40,16 @@ public class Course {
 	public void setCourseName(String courseName) {
 		this.courseName = courseName;
 	}
-	public String getDescription() {
+
+	public String getCourseDescription() {
 		return courseDescription;
 	}
-	public void setDescription(String courseDescription) {
+
+	public void setCourseDescription(String courseDescription) {
 		this.courseDescription = courseDescription;
 	}
+
+	
 	
 	@Override
 	public String toString() {

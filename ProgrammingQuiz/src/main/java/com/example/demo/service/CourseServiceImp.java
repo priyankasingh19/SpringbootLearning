@@ -20,7 +20,7 @@ public class CourseServiceImp implements CourseService {
 
 	@Override
 	public List<Course> getAllCourses() {
-		List<Course> courses = (List<Course>) courseRepo.findAll();
+		List<Course> courses = courseRepo.findAll();
 		return courses;
 	}
 
@@ -36,7 +36,7 @@ public class CourseServiceImp implements CourseService {
 		Course updatedCourse = courseRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("No record present!"));
 		updatedCourse.setCourseName(course.getCourseName());
-		updatedCourse.setDescription(course.getDescription());
+		updatedCourse.setCourseDescription(course.getCourseDescription());
 		return courseRepo.save(updatedCourse);
 	}
 
